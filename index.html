@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magazin Online</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Containerul principal care va folosi flexbox -->
+<div id="main-container">
+
+    <!-- Header -->
+    <header>
+        <div class="logo" onclick="returnToMainPage()">Magazin Online</div>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Caută produse...">
+            <button onclick="searchProducts()">Caută</button>
+        </div>
+        <!-- <div class="cart">🛒 Coșul meu</div> -->
+        <div class="cart" onclick="goToCartPage()">🛒 Coșul meu <span class="cart-count">(0)</span></div>
+
+    </header>
+
+    <!-- Container pentru reclama din partea dreaptă -->
+    <div id="ad-space-container" style="display: flex; justify-content: center; align-items: center; width: 100%; margin-top: 20px;">
+        <div id="ad-space" style="width: 1200px; height: 100px; margin-left: 225px;">
+            <a href="reclama_site.gif" target="_blank">
+                <img src="reclama_site.gif" alt="Reclama" style="width: 100%; height: 100%; object-fit: cover;">
+            </a>
+        </div>
+    </div>
+
+    <!-- Container pentru reclama din partea stângă, sub butoanele de categorie -->
+    <div id="ad-space-container-left" style="display: flex; justify-content: flex-start; align-items: center; width: 100%; margin-left: 25px; margin-top: 5px;">
+        <div id="ad-space-left" style="width: 300px; height: 450px; position: fixed; top: 400px; left: 25px;">
+            <a href="reclama_site_2.gif" target="_blank">
+                <img src="reclama_site_2.gif" alt="Reclama" style="width: 100%; height: 100%; object-fit: cover;">
+            </a>
+        </div>
+    </div>
+
+
+
+
+    <!-- Categorii -->
+    <div id="categories">
+        <button onclick="filterProducts('Proteine')">Proteine</button>
+        <button onclick="filterProducts('Creatina')">Creatina</button>
+        <button onclick="filterProducts('Vitamine')">Vitamine</button>
+        <button onclick="filterProducts('Gainere')">Gainere</button>
+        <button onclick="filterProducts('Stimulente')">Stimulente</button>
+        <button onclick="filterProducts('Haine')">Haine</button>
+        <button onclick="filterProducts('Accesorii')">Accesorii</button>
+
+    </div>
+
+
+
+    <!-- Filtru de preț -->
+    <div id="price-filter" style="display: none; padding: 10px 20px; background-color: #fff; border: 1px solid #ddd; position: fixed;width:220px; left: 10px; top: 500px; z-index: 1000;">
+        <label for="min-price" style="display: block; margin-bottom: 5px;">Preț minim:</label>
+        <input type="number" id="min-price" placeholder="Minim" style="width: 100%; margin-bottom: 10px;">
+        <label for="max-price" style="display: block; margin-bottom: 5px;">Preț maxim:</label>
+        <input type="number" id="max-price" placeholder="Maxim" style="width: 100%; margin-bottom: 10px;">
+        <button onclick="applyPriceFilter()" style="width: 100%; margin-bottom: 10px;">Filtrează</button>
+        <button onclick="resetFilters()" style="width: 100%; background-color: #6c757d; color: #fff;">Resetează filtrele</button>
+    </div>
+
+    <!-- Lista de produse -->
+    <div id="product-list" class="product-grid"></div>
+
+</div> <!-- Închiderea #main-container -->
+
+<!-- Footer -->
+<footer id="footer" style="background-color: black; color: white; padding: 20px 0; text-align: center;">
+    <a href="#contact" style="color: white; margin: 0 15px; text-decoration: none;">Contact</a>
+    <a href="#terms" style="color: white; margin: 0 15px; text-decoration: none;">Termeni și condiții</a>
+</footer>
+
+<!-- Mesaj de eroare -->
+<div id="error-message" style="display: none;">
+    <!-- Mesajul de eroare va fi adăugat aici din JavaScript -->
+</div>
+
+<!-- Butonul pentru schimbarea modului -->
+<div id="dark-mode-container">
+    <img id="dark-mode-icon" src="day-and-night.png" alt="Dark Mode" onclick="toggleDarkMode()">
+</div>
+
+<script src="products.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
